@@ -1,8 +1,9 @@
-import type { FC, JSX, PropsWithChildren } from 'react'
-import { tv, type VariantProps } from 'tailwind-variants'
+import type { ComponentPropsWithoutRef, PropsWithChildren } from 'react'
+import { cva, type VariantProps } from 'class-variance-authority'
 
-const variants = tv({
-  base: ['margin-0', 'text-foreground', 'leading-tight', 'tracking-tight'],
+import { cn } from '@/lib/utils'
+
+const headingVariants = cva('m-0 text-foreground leading-tight tracking-tight', {
   variants: {
     size: {
       lg: 'text-lg',
@@ -31,12 +32,24 @@ const variants = tv({
 
 type Props = PropsWithChildren<
   {
-    level: number
-  } & VariantProps<typeof variants>
->
+    level: 1 | 2 | 3 | 4 | 5 | 6
+  } & VariantProps<typeof headingVariants>
+> &
+  ComponentPropsWithoutRef<'h1'>
 
-export const Heading: FC<Props> = ({ level, size, weight, align, ...props }) => {
-  const HeadingTag = `h${level}` as keyof JSX.IntrinsicElements
+export function Heading({ level, size, weight, align, className, ...props }: Props) {
+  const headingTags = {
+    1: 'h1',
+    2: 'h2',
+    3: 'h3',
+    4: 'h4',
+    5: 'h5',
+    6: 'h6',
+  } as const
 
-  return <HeadingTag className={variants({ size, weight, align })} {...props} />
+  const HeadingTag = headingTags[level]
+
+  return (
+    <HeadingTag className={cn(headingVariants({ size, weight, align, className }))} {...props} />
+  )
 }

@@ -1,9 +1,9 @@
-/* app/components/Body.tsx */
-import type { FC, PropsWithChildren } from 'react'
-import { tv, type VariantProps } from 'tailwind-variants'
+import type { ComponentPropsWithoutRef, PropsWithChildren } from 'react'
+import { cva, type VariantProps } from 'class-variance-authority'
 
-const variants = tv({
-  base: ['margin-0', 'text-foreground-variant'],
+import { cn } from '@/lib/utils'
+
+const bodyVariants = cva('m-0 text-foreground-variant', {
   variants: {
     size: {
       sm: 'text-sm',
@@ -23,8 +23,8 @@ const variants = tv({
   },
 })
 
-type Props = PropsWithChildren<VariantProps<typeof variants>>
+type Props = PropsWithChildren<VariantProps<typeof bodyVariants>> & ComponentPropsWithoutRef<'p'>
 
-export const Body: FC<Props> = ({ size, align, ...props }) => (
-  <p className={variants({ size, align })} {...props} />
-)
+export function Body({ size, align, className, ...props }: Props) {
+  return <p className={cn(bodyVariants({ size, align, className }))} {...props} />
+}

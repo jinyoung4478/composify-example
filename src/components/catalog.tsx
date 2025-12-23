@@ -24,12 +24,12 @@ import {
 } from 'lucide-react'
 import { Heading } from './heading'
 import { Text } from './text'
-import { HStack } from './h-stack'
-import { VStack } from './v-stack'
+import { HStack, VStack } from './layouts'
 import { Body } from './body'
 
 Catalog.register('Text', {
   component: Text,
+  category: 'Font',
   props: {
     textAlign: {
       label: 'Text Align',
@@ -51,7 +51,7 @@ Catalog.register('Text', {
 
 Catalog.register('Heading', {
   component: Heading,
-  category: 'Content',
+  category: 'Font',
   props: {
     level: {
       label: 'Level',
@@ -109,7 +109,7 @@ Catalog.register('Heading', {
 
 Catalog.register('Body', {
   component: Body,
-  category: 'Content',
+  category: 'Font',
   props: {
     size: {
       label: 'Size',
