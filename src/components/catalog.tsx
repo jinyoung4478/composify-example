@@ -185,15 +185,15 @@ Catalog.register('VStack', {
     width: {
       group: 'Size',
       label: 'Width',
-      type: 'number',
-      default: 100,
+      type: 'text',
+      default: '100%',
       optional: true,
     },
     height: {
       group: 'Size',
       label: 'Height',
-      type: 'number',
-      default: 100,
+      type: 'text',
+      default: '100px',
       optional: true,
     },
     padding: {
@@ -309,15 +309,15 @@ Catalog.register('HStack', {
     width: {
       group: 'Size',
       label: 'Width',
-      type: 'number',
-      default: 100,
+      type: 'text',
+      default: '100%',
       optional: true,
     },
     height: {
       group: 'Size',
       label: 'Height',
-      type: 'number',
-      default: 100,
+      type: 'text',
+      default: '100px',
       optional: true,
     },
     padding: {

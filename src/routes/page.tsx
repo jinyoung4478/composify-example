@@ -21,12 +21,12 @@ export default function Page() {
   return (
     <main className="p-4">
       <section className="flex items-end justify-between mb-4">
-        <h1 className="text-2xl">Rendering page: {slug}</h1>
+        <h1 className="text-2xl">{slug}</h1>
         <a href={`/${slug}/edit`} className="text-blue-500 hover:underline">
-          Visit Editor
+          Editor
         </a>
       </section>
-      <section className="border rounded-sm border-neutral-200">
+      <section>
         <Renderer source={content} />
       </section>
     </main>
