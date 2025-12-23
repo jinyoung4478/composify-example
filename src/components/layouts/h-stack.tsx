@@ -1,4 +1,5 @@
 /* app/components/HStack.tsx */
+import { cn } from '@/lib/utils'
 import type { FC, PropsWithChildren } from 'react'
 import { tv, type VariantProps } from 'tailwind-variants'
 
@@ -30,6 +31,7 @@ type Props = PropsWithChildren<
     padding?: { top: number; right: number; bottom: number; left: number }
     margin?: { top: number; right: number; bottom: number; left: number }
     background?: string
+    classes?: string[]
   } & VariantProps<typeof variants>
 >
 
@@ -43,10 +45,11 @@ export const HStack: FC<Props> = ({
   background,
   alignHorizontal,
   alignVertical,
+  classes,
   ...props
 }) => (
   <div
-    className={variants({ alignHorizontal, alignVertical })}
+    className={cn(variants({ alignHorizontal, alignVertical }), classes)}
     style={{
       flex,
       gap,

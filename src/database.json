@@ -6,7 +6,22 @@
     },
     {
       "id": "foo",
-      "content": "<VStack><Heading level={1} size=\"3xl\" weight=\"bold\" align=\"left\" children=\"Heading\">Heading</Heading><VStack alignHorizontal=\"stretch\" alignVertical=\"start\" width=\"100%\" height=\"auto\" background=\"#EEEEEE\" gap={10} padding={{top: 20, right: 20, bottom: 20, left: 20}}><HStack alignHorizontal=\"start\" alignVertical=\"stretch\" width=\"100%\" height=\"auto\" background=\"#554466\" padding={{top: 10, right: 10, bottom: 10, left: 10}}><Heading level={1} size=\"3xl\" weight=\"bold\" align=\"left\" children=\"Heading\">Heading</Heading></HStack></VStack></VStack>"
+      "content": "<VStack><Heading level={1} size=\"3xl\" weight=\"bold\" align=\"left\" children=\"Heading\">Heading</Heading><VStack alignHorizontal=\"stretch\" alignVertical=\"start\" width=\"100%\" height=\"100px\"><Button variant=\"default\" size=\"md\" /></VStack></VStack>"
+    }
+  ],
+  "mock": [
+    {
+      "id": "select-options",
+      "options": [
+        {
+          "label": "Option 1",
+          "value": "option1"
+        },
+        {
+          "label": "Option 2",
+          "value": "option2"
+        }
+      ]
     }
   ]
 }
