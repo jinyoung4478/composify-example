@@ -1,7 +1,8 @@
 import { useLoaderData, useNavigate, type LoaderFunctionArgs } from 'react-router'
 import { Editor } from '@composify/react/editor'
 import '@composify/react/style.css'
-import '../components/catalog'
+
+import '@/components/catalog'
 
 export async function loader({ params }: LoaderFunctionArgs) {
   const slug = params.slug ?? ''
