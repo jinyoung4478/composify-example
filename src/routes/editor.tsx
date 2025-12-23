@@ -38,5 +38,16 @@ export default function EditorPage() {
     navigate(`/${slug}`)
   }
 
-  return <Editor title={`Editing: ${slug}`} source={content} onSubmit={handleSubmit} />
+  return (
+    <Editor
+      title={`Editing: ${slug}`}
+      source={content}
+      onSubmit={handleSubmit}
+      viewports={[
+        { width: 360, label: 'Mobile', initial: true },
+        { width: 810, label: 'Tablet' },
+        { width: 1420, label: 'Desktop' },
+      ]}
+    />
+  )
 }
