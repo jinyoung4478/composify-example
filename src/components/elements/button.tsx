@@ -1,20 +1,21 @@
 import { Button } from '../ui/button'
+import { Renderer, type Node } from '@composify/react/renderer'
 
 type ButtonContents =
-  | { asChild: true; slot: React.ReactNode; text?: never }
+  | { asChild: true; slot: Node; text?: never }
   | { asChild?: false; text: string; slot?: never }
 
 type CatalogButtonProps = {
   variant?: 'default' | 'destructive' | 'outline'
   size?: 'sm' | 'md' | 'lg' | 'icon'
-  contents?: ButtonContents
+  contents: ButtonContents
 }
 
 function CatalogButton({ contents, ...props }: CatalogButtonProps) {
-  if (contents?.asChild) {
+  if (contents.asChild) {
     return (
       <Button asChild {...props}>
-        {contents?.slot}
+        <Renderer source={contents.slot} />
       </Button>
     )
   }
